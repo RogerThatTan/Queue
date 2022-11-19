@@ -4,15 +4,16 @@ using namespace std;
 class Queue{
 
     int maxsize, front,rear;
-    int queue[100];
+    int *queue;
 
 
     public: 
-    Queue(){
+    Queue(){}
 
-        maxsize= 5;
-        front = -1;
-        rear = -1;
+    myqueue(int size){
+        queue = new int [size];
+        front = rear = -1;
+        maxsize =size;
     }
 
     void Enqueue(int x){
@@ -87,6 +88,12 @@ class Queue{
     int main(){
 
     Queue q = Queue();
+
+    int n;
+    cout<<"Enter the size of the queue: ";
+    cin>>n;
+    q.myqueue(n);
+    
 
     q.Enqueue(2);
     q.Enqueue(3);
